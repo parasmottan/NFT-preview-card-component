@@ -1,0 +1,307 @@
+/* outfit-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/outfit-v11-latin-300.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* outfit-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/outfit-v11-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* outfit-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/outfit-v11-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* css variables */
+:root {
+  --text-clr: 215 51% 70%;
+  --accent-clr: 178 100% 50%;
+  --main-bkg: 217 54% 11%;
+  --card-bkg: 216 50% 16%;
+  --line-clr: 215 32% 27%;
+  --white-clr: 0 0% 100%;
+
+  --fw-300: 300;
+  --fw-600: 600;
+  --ff-outfit: "Outfit", sans-serif;
+
+  --transition: 300ms ease-in-out;
+  --radius-circle: 3.125rem;
+  --radius-7: 0.4375rem;
+  --radius-10: 0.625rem;
+  --radius-16: 1rem;
+}
+
+/* reset */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  font-size: 100%;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+  width: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* sometimes referred to as .sr-only */
+.visually-hidden:not(:focus):not(:active):not(:focus-within) {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+body {
+  font-size: 1.125rem;
+  font-family: var(--ff-outfit);
+  display: grid;
+  place-content: center;
+  background-color: hsl(var(--main-bkg));
+  color: hsl(var(--text-clr));
+}
+
+/* utility classes */
+.flex {
+  display: flex;
+  gap: var(--_gap, 0.5rem);
+  align-items: center;
+}
+
+.d-flex-sb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.accent-clr:is(:hover, :focus-visible) {
+  color: hsl(var(--accent-clr));
+}
+
+.accent-clr {
+  color: hsl(var(--white-clr));
+  transition: var(--transition);
+}
+
+/* nft card styles */
+main {
+  max-width: 20.625rem;
+  margin-inline: auto;
+  background-color: hsl(var(--card-bkg));
+  padding: 1.4375rem;
+  border-radius: var(--radius-16);
+  margin-inline: 1rem;
+}
+
+/* article styles - title & description */
+article {
+  padding-block: 1.6875rem;
+}
+
+.title {
+  font-size: 1.6rem;
+  margin-block-end: 1.25rem;
+}
+
+.description {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/* nft banner styles */
+.nft__banner {
+  position: relative;
+  border-radius: var(--radius-7);
+  overflow: hidden;
+}
+
+.nft__banner::after {
+  --accent-clr-alt: 178 100% 50%;
+  position: absolute;
+  content: url("../images/icon-view.svg");
+  background-color: hsl(var(--accent-clr-alt) / 0.5);
+  inset: 0;
+  display: grid;
+  place-content: center;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.nft__banner:hover::after {
+  opacity: 1;
+}
+
+/* detail styles - price and days */
+.details {
+  padding-block-end: 1.4375rem;
+  border-bottom: 0.0625rem solid hsl(var(--line-clr));
+}
+
+.detail {
+  font-size: 0.9375rem;
+}
+
+.detail__price {
+  font-weight: var(--fw-600);
+  color: hsl(var(--accent-clr));
+}
+
+/* nft avatar styles */
+.avatar {
+  padding-block-start: 1.125rem;
+}
+
+.nft__avatar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.nft__avatar img {
+  border: 1px solid hsl(var(--white-clr));
+  border-radius: var(--radius-circle);
+}
+
+.nft__avatar-name {
+  font-size: 0.9375rem;
+  font-weight: var(--fw-300);
+}
+
+/* attribution */
+.attribution {
+  font-size: 0.6875rem;
+  position: fixed;
+  inset: auto 1em 1em;
+  display: none;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* media query */
+@media (width >= 50em) {
+  .attribution {
+    display: block;
+  }
+}
